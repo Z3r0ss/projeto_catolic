@@ -1,9 +1,9 @@
-// --- Animação de Partículas no Fundo (Canvas) ---
+/// --- Animação de Partículas no Fundo (Canvas) ---
 const canvas = document.getElementById('particle-canvas');
 const ctx = canvas.getContext('2d');
 
 let particles = [];
-const particleColor = 'rgba(198, 166, 100, 0.8)'; // Dourado
+const particleColor = 'rgba(198, 166, 100, 0.8)';
 
 function resizeCanvas() {
     canvas.width = window.innerWidth;
@@ -54,7 +54,7 @@ function animateParticles() {
 }
 animateParticles();
 
-// --- Efeito de surgimento ao rolar a página (Scroll Reveal) ---
+// --- Scroll Reveal ---
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -65,7 +65,7 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
 
-// --- Mudança de cor da Navbar ao rolar ---
+// --- Navbar scroll effect ---
 const nav = document.querySelector('.glass-nav');
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
@@ -77,7 +77,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// --- Filtro de Categoria (Simples) ---
+// --- Filtro de Categoria ---
 const filterButtons = document.querySelectorAll('.filter-bar button');
 const productItems = document.querySelectorAll('.product-item');
 
@@ -105,7 +105,6 @@ filterButtons.forEach(button => {
 
 let cart = [];
 
-// Elementos do carrinho
 const cartIcon = document.getElementById('cart-icon');
 const badge = cartIcon.querySelector('.badge');
 const cartModalOverlay = document.getElementById('cart-modal');
@@ -116,7 +115,6 @@ const checkoutBtn = document.getElementById('checkout-btn');
 const clearCartBtn = document.getElementById('clear-cart');
 const catalogoLink = document.getElementById('catalogo-pdf');
 
-// Adicionar evento aos botões "Adicionar ao Carrinho"
 document.querySelectorAll('.add-to-cart').forEach(button => {
     button.addEventListener('click', (e) => {
         const btn = e.currentTarget;
@@ -130,7 +128,6 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
 });
 
 function addToCart(product) {
-    // Verifica se o produto já existe no carrinho (pode adicionar quantidade depois)
     const existing = cart.find(item => item.name === product.name && item.material === product.material);
     if (existing) {
         existing.quantity += 1;
@@ -151,11 +148,9 @@ function clearCart() {
 }
 
 function updateCartUI() {
-    // Atualiza badge
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     badge.textContent = totalItems;
 
-    // Renderiza itens no modal
     if (cart.length === 0) {
         cartItemsContainer.innerHTML = '<p style="text-align:center; color:#888;">Seu carrinho está vazio.</p>';
     } else {
@@ -174,7 +169,6 @@ function updateCartUI() {
         });
         cartItemsContainer.innerHTML = html;
 
-        // Eventos de remover item
         document.querySelectorAll('.remove-item').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const index = parseInt(e.currentTarget.dataset.index);
@@ -183,7 +177,6 @@ function updateCartUI() {
         });
     }
 
-    // Atualiza total
     const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
     cartTotalSpan.textContent = `R$ ${total.toFixed(2)}`;
 }
@@ -209,13 +202,13 @@ checkoutBtn.addEventListener('click', () => {
         alert('Adicione produtos ao carrinho primeiro.');
         return;
     }
-    const numeroWhatsApp = '5587992061091'; // Seu número
-    let mensagem = 'Olá, gostaria de finalizar o pedido:\n\n';
+    const numeroWhatsApp = '5587992061091';
+    let mensagem = 'Olá, vim pelo site Divino3D e gostaria de finalizar este pedido:\n\n';
     cart.forEach(item => {
-        mensagem += `➡️ ${item.name} (${item.material}) - Quantidade: ${item.quantity} - Preço unitário: R$ ${item.price.toFixed(2)}\n`;
+        mensagem += `➡️ ${item.name} (${item.material}) - Qtd: ${item.quantity} - Unit: R$ ${item.price.toFixed(2)}\n`;
     });
     const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-    mensagem += `\n💰 Total do pedido: R$ ${total.toFixed(2)}`;
+    mensagem += `\n💰 Total: R$ ${total.toFixed(2)}`;
     const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
     window.open(url, '_blank');
 });
@@ -227,11 +220,11 @@ clearCartBtn.addEventListener('click', () => {
     }
 });
 
-// Link do catálogo com mensagem automática
+// Link do WhatsApp (Catálogo / Contato)
 catalogoLink.addEventListener('click', (e) => {
     e.preventDefault();
     const numeroWhatsApp = '5587992061091';
-    const mensagem = 'Olá, gostaria de receber o catálogo dos produtos da Sacra 3D.';
+    const mensagem = 'Olá, gostaria de mais informações sobre os produtos da Divino3D.';
     const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
     window.open(url, '_blank');
 });
