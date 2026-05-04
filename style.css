@@ -461,8 +461,115 @@ body {
     background: #f5f5f5;
 }
 
+/* ========== SEÇÃO DE FRETE ========== */
+.frete-section {
+    background: var(--bg-warm);
+    padding: 5rem 5%;
+    text-align: center;
+    border-top: 1px solid rgba(0,0,0,0.03);
+}
+
+.frete-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.frete-container h2 {
+    font-family: 'Tenor Sans', serif;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.frete-desc {
+    color: var(--primary);
+    opacity: 0.8;
+    margin-bottom: 3rem;
+    font-size: 1.05rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.frete-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    margin-bottom: 3rem;
+}
+
+.frete-card {
+    background: white;
+    padding: 2rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    transition: transform 0.3s ease;
+}
+
+.frete-card:hover {
+    transform: translateY(-5px);
+}
+
+.frete-icone {
+    font-size: 2.2rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.frete-card h3 {
+    font-family: 'Tenor Sans', serif;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.frete-card p {
+    font-size: 0.9rem;
+    color: var(--primary);
+    opacity: 0.7;
+}
+
+.btn-frete {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    border: 2px solid var(--accent);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.btn-frete:hover {
+    background: transparent;
+    color: var(--accent);
+}
+
 @media (max-width: 768px) {
     .hero-modern { text-align: center; justify-content: center; padding-top: 100px; }
-    .grid-modern { grid-template-columns: 1fr; }
+    .grid-modern { 
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 20px; 
+        padding: 1rem 3% 3rem;
+    }
     .manifesto { padding-top: 5rem; }
+    .product-item .img-container {
+        aspect-ratio: 3/4;
+    }
+    .product-meta h3 {
+        font-size: 1rem;
+    }
+    .price {
+        font-size: 0.95rem;
+    }
+    .material {
+        font-size: 0.7rem;
+    }
+    .overlay .btn-quick {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
 }
