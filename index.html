@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sacra 3D | Luxo & Devoção em Alta Definição</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Fontes Premium -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;700&family=Tenor+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <canvas id="particle-canvas"></canvas>
+
+    <nav class="glass-nav">
+        <div class="logo">SACRA<span>3D</span></div>
+        <div class="nav-actions">
+            <button id="cart-icon" aria-label="Carrinho de compras">🛒 <span class="badge">0</span></button>
+            <a href="#" class="btn-top" id="catalogo-pdf">Whatsapp</a>
+        </div>
+    </nav>
+
+    <section class="hero-modern">
+        <div class="hero-text" data-reveal>
+            <span class="tagline">O Futuro da Arte Sacra</span>
+            <h1>Devoção em <br><span class="highlight">Alta Definição</span></h1>
+            <p>Peças exclusivas em impressão 3D com acabamento em argila e ouro velho. Transforme sua fé em arte.</p>
+            <a href="#galeria" class="scroll-indicator">Explorar Coleção</a>
+        </div>
+    </section>
+
+    <main class="content-wrapper" id="galeria">
+        <section class="manifesto" data-reveal>
+            <h2>A Intersecção entre o <span class="highlight">Sagrado</span> e a Tecnologia</h2>
+            <p>Na Sacra 3D, cada peça é uma oração materializada. Utilizamos impressão 3D de última geração para criar imagens, terços e objetos de decoração que unem a precisão milimétrica da tecnologia à beleza atemporal da arte sacra.</p>
+        </section>
+
+        <div class="filter-bar" data-reveal>
+            <button class="active" data-filter="all">Todos</button>
+            <button data-filter="imagens">Imagens</button>
+            <button data-filter="tercos">Terços</button>
+            <button data-filter="decor">Decor</button>
+        </div>
+
+        <div class="grid-modern">
+            <!-- Card Premium 1 -->
+            <div class="product-item" data-category="imagens" data-reveal>
+                <div class="img-container">
+                    <img src="https://placehold.co/600x750/3d2b1f/c6a664?text=Cristo+Redentor" alt="Cristo Redentor Minimalista" loading="lazy">
+                    <div class="overlay">
+                        <button class="btn-quick add-to-cart"
+                                data-name="Cristo Redentor Minimalista"
+                                data-price="189.00"
+                                data-material="PLA Premium">
+                            Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+                <div class="product-meta">
+                    <h3>Cristo Redentor Minimalista</h3>
+                    <div class="price-row">
+                        <span class="price">R$ 189,00</span>
+                        <span class="material">PLA Premium</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Premium 2 -->
+            <div class="product-item" data-category="tercos" data-reveal>
+                <div class="img-container">
+                    <img src="https://placehold.co/600x750/fdfaf7/c6a664?text=Ter%C3%A7o+Bizantino" alt="Terço Bizantino 3D" loading="lazy">
+                    <div class="overlay">
+                        <button class="btn-quick add-to-cart"
+                                data-name="Terço Bizantino 3D"
+                                data-price="129.00"
+                                data-material="Resina Fotossensível">
+                            Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+                <div class="product-meta">
+                    <h3>Terço Bizantino 3D</h3>
+                    <div class="price-row">
+                        <span class="price">R$ 129,00</span>
+                        <span class="material">Resina Fotossensível</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Premium 3 -->
+            <div class="product-item" data-category="decor" data-reveal>
+                <div class="img-container">
+                    <img src="https://placehold.co/600x750/efe5dc/3d2b1f?text=Cruz+de+Parede" alt="Cruz de Parede Vazada" loading="lazy">
+                    <div class="overlay">
+                        <button class="btn-quick add-to-cart"
+                                data-name="Cruz de Parede Vazada"
+                                data-price="219.00"
+                                data-material="PETG Premium">
+                            Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+                <div class="product-meta">
+                    <h3>Cruz de Parede Vazada</h3>
+                    <div class="price-row">
+                        <span class="price">R$ 219,00</span>
+                        <span class="material">PETG Premium</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Premium 4 -->
+            <div class="product-item" data-category="imagens" data-reveal>
+                <div class="img-container">
+                    <img src="https://placehold.co/600x750/fbf7f2/c6a664?text=Nossa+Senhora" alt="Nossa Senhora Escultura" loading="lazy">
+                    <div class="overlay">
+                        <button class="btn-quick add-to-cart"
+                                data-name="Nossa Senhora Aparecida"
+                                data-price="249.00"
+                                data-material="PLA Premium">
+                            Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+                <div class="product-meta">
+                    <h3>Nossa Senhora Aparecida</h3>
+                    <div class="price-row">
+                        <span class="price">R$ 249,00</span>
+                        <span class="material">PLA Premium</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal do Carrinho -->
+    <div id="cart-modal" class="cart-modal-overlay">
+        <div class="cart-modal">
+            <div class="cart-header">
+                <h2>Seu Carrinho</h2>
+                <button id="close-cart" class="close-btn">&times;</button>
+            </div>
+            <div id="cart-items-container" class="cart-body">
+                <!-- Itens dinâmicos -->
+            </div>
+            <div class="cart-footer">
+                <p>Total: <span id="cart-total">R$ 0,00</span></p>
+                <button id="checkout-btn" class="btn-checkout">Finalizar Compra via WhatsApp</button>
+                <button id="clear-cart" class="btn-clear">Limpar Carrinho</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>© 2024 Sacra 3D. Todos os direitos reservados.</p>
+            <p>Feito com fé e tecnologia.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
