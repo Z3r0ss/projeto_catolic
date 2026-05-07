@@ -3,185 +3,400 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Divino3D | Imagens Sacras & Acessórios Exclusivos</title>
+    <meta name="description" content="Divino3D: imagens sacras e acessórios católicos feitos em impressão 3D com acabamento artesanal.">
+    <title>Divino3D | Imagens Sacras & Acessórios Católicos em 3D</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;700&family=Tenor+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Tenor+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
+    <canvas id="particle-canvas" aria-hidden="true"></canvas>
 
-    <canvas id="particle-canvas"></canvas>
-
-    <nav class="glass-nav">
-        <div class="logo">DIVINO<span>3D</span></div>
+    <nav class="glass-nav" aria-label="Navegação principal">
+        <a class="logo" href="#inicio" aria-label="Divino3D página inicial">DIVINO<span>3D</span></a>
+        <div class="nav-links" aria-label="Links do site">
+            <a href="#colecao">Coleção</a>
+            <a href="#processo">Processo</a>
+            <a href="#envio">Frete</a>
+        </div>
         <div class="nav-actions">
-            <button id="cart-icon" aria-label="Carrinho de compras">🛒 <span class="badge">0</span></button>
-            <a href="#" class="btn-top" id="catalogo-pdf">Whatsapp</a>
+            <button id="cart-icon" class="cart-pill" aria-label="Abrir carrinho de compras">
+                <span>🛒</span>
+                <span>Carrinho</span>
+                <span class="badge">0</span>
+            </button>
+            <a href="#contato" class="btn-top whatsapp-top" id="catalogo-pdf" aria-label="Falar no WhatsApp">
+                <svg class="whatsapp-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+                    <path d="M16.02 3.2c-7.02 0-12.73 5.65-12.73 12.61 0 2.22.59 4.39 1.71 6.3L3.2 28.8l6.87-1.77a12.86 12.86 0 0 0 5.95 1.5c7.02 0 12.73-5.65 12.73-12.61S23.04 3.2 16.02 3.2Zm0 23.16c-1.88 0-3.72-.5-5.32-1.46l-.38-.23-4.08 1.05 1.08-3.94-.25-.4a10.33 10.33 0 0 1-1.59-5.56c0-5.75 4.73-10.43 10.54-10.43s10.54 4.68 10.54 10.43-4.73 10.54-10.54 10.54Zm5.78-7.81c-.32-.16-1.88-.92-2.17-1.03-.29-.11-.5-.16-.71.16-.21.32-.82 1.03-1.01 1.24-.19.21-.37.24-.69.08-.32-.16-1.34-.49-2.56-1.56-.95-.84-1.59-1.88-1.77-2.2-.19-.32-.02-.49.14-.65.14-.14.32-.37.48-.55.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.71-1.7-.98-2.33-.26-.61-.52-.53-.71-.54h-.61c-.21 0-.56.08-.85.4-.29.32-1.11 1.08-1.11 2.63s1.14 3.05 1.3 3.26c.16.21 2.24 3.39 5.43 4.75.76.33 1.35.52 1.81.67.76.24 1.45.2 2 .12.61-.09 1.88-.76 2.15-1.5.27-.74.27-1.37.19-1.5-.08-.14-.29-.22-.61-.38Z"/>
+                </svg>
+                <span class="whatsapp-label">WhatsApp</span>
+            </a>
         </div>
     </nav>
 
-    <section class="hero-modern">
-        <div class="hero-text" data-reveal>
-            <span class="tagline">Fé em Cada Detalhe</span>
-            <h1>Imagens Sacras<br><span class="highlight">em 3D</span></h1>
-            <p>Do digital ao altar: imagens e acessórios produzidos com tecnologia 3D e acabamento artesanal.</p>
-            <a href="#galeria" class="scroll-indicator">Ver Coleção</a>
-        </div>
-    </section>
+    <header class="hero-modern" id="inicio">
+        <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
+        <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
 
-    <main class="content-wrapper" id="galeria">
+        <div class="hero-text" data-reveal>
+            <span class="tagline">Fé em cada detalhe</span>
+            <h1>Peças católicas em <span class="highlight">3D</span> com alma artesanal.</h1>
+            <p>Imagens sacras, chaveiros e lembranças religiosas produzidas com precisão digital, acabamento cuidadoso e presença digna para oratórios, presentes e momentos de devoção.</p>
+            <div class="hero-actions">
+                <a href="#colecao" class="scroll-indicator">Ver coleção</a>
+                <button class="btn-ghost" id="open-cart-hero">Montar pedido</button>
+            </div>
+            <div class="trust-strip" aria-label="Diferenciais da loja">
+                <span>✦ Produção sob demanda</span>
+                <span>✦ Envio nacional</span>
+                <span>✦ Pagamento seguro</span>
+            </div>
+        </div>
+
+        <div class="hero-showcase" data-reveal>
+            <div class="showcase-card main-piece">
+                <span class="piece-label">Destaque</span>
+                <div class="statue-visual" aria-hidden="true">
+                    <div class="halo"></div>
+                    <div class="statue-head"></div>
+                    <div class="statue-body"></div>
+                    <div class="statue-base"></div>
+                </div>
+                <h2>Nossa Senhora Aparecida</h2>
+                <p>Acabamento premium em PLA</p>
+            </div>
+            <div class="floating-note note-one">Detalhes refinados</div>
+            <div class="floating-note note-two">Feito com cuidado</div>
+        </div>
+    </header>
+
+    <main>
         <section class="manifesto" data-reveal>
-            <h2>O <span class="highlight">Sagrado</span> moldado pela tecnologia</h2>
-            <p>Na Divino3D, transformamos sua devoção em peças únicas. Oferecemos imagens sacras e acessórios como chaveiros, criados com precisão digital e alma artesanal.</p>
+            <span class="section-eyebrow">Divino3D</span>
+            <h2>O <span class="highlight">sagrado</span> moldado pela tecnologia.</h2>
+            <p>Transformamos devoção em peças físicas: imagens, acessórios e lembranças com estética elegante, materiais selecionados e uma experiência de compra mais profissional.</p>
         </section>
 
-        <div class="filter-bar" data-reveal>
-            <button class="active" data-filter="all">Todos</button>
-            <button data-filter="imagens">Imagens</button>
-            <button data-filter="acessorios">Acessórios</button>
-        </div>
+        <section class="features-row" aria-label="Benefícios da Divino3D" data-reveal>
+            <article>
+                <strong>01</strong>
+                <h3>Impressão precisa</h3>
+                <p>Modelos preparados para boa definição de detalhes e acabamento limpo.</p>
+            </article>
+            <article>
+                <strong>02</strong>
+                <h3>Acabamento artesanal</h3>
+                <p>Cada peça recebe atenção no pós-processo antes do envio.</p>
+            </article>
+            <article>
+                <strong>03</strong>
+                <h3>Checkout preparado</h3>
+                <p>Carrinho com frete por CEP e pagamento via Mercado Pago.</p>
+            </article>
+        </section>
 
-        <div class="grid-modern">
-            <!-- Card 1 - Imagem -->
-            <div class="product-item" data-category="imagens" data-reveal>
-                <div class="img-container">
-                    <img src="https://placehold.co/600x750/3d2b1f/c6a664?text=Cristo+Redentor" alt="Cristo Redentor" loading="lazy">
-                    <div class="overlay">
-                        <button class="btn-quick add-to-cart"
-                                data-name="Cristo Redentor (20cm)"
-                                data-price="189.00"
-                                data-material="PLA Premium">
-                            Adicionar ao Carrinho
-                        </button>
-                    </div>
-                </div>
-                <div class="product-meta">
-                    <h3>Cristo Redentor</h3>
-                    <div class="price-row">
-                        <span class="price">R$ 189,00</span>
-                        <span class="material">PLA Premium</span>
-                    </div>
-                </div>
+        <section class="collection-section" id="colecao">
+            <div class="section-heading" data-reveal>
+                <span class="section-eyebrow">Coleção</span>
+                <h2>Escolha sua peça</h2>
+                <p>Produtos de exemplo já com peso e dimensões preparados para cotação no Melhor Envio.</p>
             </div>
 
-            <!-- Card 2 - Imagem -->
-            <div class="product-item" data-category="imagens" data-reveal>
-                <div class="img-container">
-                    <img src="https://placehold.co/600x750/fdfaf7/c6a664?text=Nossa+Senhora" alt="Nossa Senhora Aparecida" loading="lazy">
-                    <div class="overlay">
-                        <button class="btn-quick add-to-cart"
-                                data-name="Nossa Senhora Aparecida (15cm)"
-                                data-price="219.00"
-                                data-material="PLA Premium">
-                            Adicionar ao Carrinho
-                        </button>
-                    </div>
-                </div>
-                <div class="product-meta">
-                    <h3>Nossa Senhora Aparecida</h3>
-                    <div class="price-row">
-                        <span class="price">R$ 219,00</span>
-                        <span class="material">PLA Premium</span>
-                    </div>
-                </div>
+            <div class="filter-bar" data-reveal>
+                <button class="active" data-filter="all">Todos</button>
+                <button data-filter="imagens">Imagens</button>
+                <button data-filter="acessorios">Acessórios</button>
+                <button data-filter="lembrancas">Lembranças</button>
             </div>
 
-            <!-- Card 3 - Acessório (Chaveiro) -->
-            <div class="product-item" data-category="acessorios" data-reveal>
-                <div class="img-container">
-                    <img src="https://placehold.co/600x750/efe5dc/3d2b1f?text=Chaveiro+S%C3%A3o+Bento" alt="Chaveiro de São Bento" loading="lazy">
-                    <div class="overlay">
-                        <button class="btn-quick add-to-cart"
-                                data-name="Chaveiro de São Bento"
-                                data-price="49.90"
-                                data-material="PETG Premium">
-                            Adicionar ao Carrinho
-                        </button>
+            <div class="grid-modern">
+                <article class="product-item featured-product" data-category="imagens" data-reveal>
+                    <div class="img-container warm-product">
+                        <img src="https://placehold.co/700x850/3d2b1f/c6a664?text=Cristo+Redentor" alt="Cristo Redentor impresso em 3D" loading="lazy">
+                        <span class="product-tag">Mais pedido</span>
+                        <div class="overlay">
+                            <button class="btn-quick add-to-cart"
+                                    data-id="cristo-redentor-20"
+                                    data-name="Cristo Redentor (20cm)"
+                                    data-price="189.00"
+                                    data-material="PLA Premium"
+                                    data-weight="0.45"
+                                    data-width="14"
+                                    data-height="24"
+                                    data-length="14">
+                                Adicionar ao carrinho
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <div class="product-meta">
-                    <h3>Chaveiro de São Bento</h3>
-                    <div class="price-row">
-                        <span class="price">R$ 49,90</span>
-                        <span class="material">PETG Premium</span>
+                    <div class="product-meta">
+                        <div>
+                            <h3>Cristo Redentor</h3>
+                            <p>20cm • PLA Premium</p>
+                        </div>
+                        <div class="price-row">
+                            <span class="price">R$ 189,00</span>
+                            <span class="material">0,45kg</span>
+                        </div>
                     </div>
-                </div>
-            </div>
+                </article>
 
-            <!-- Card 4 - Acessório (Chaveiro) -->
-            <div class="product-item" data-category="acessorios" data-reveal>
-                <div class="img-container">
-                    <img src="https://placehold.co/600x750/fbf7f2/c6a664?text=Chaveiro+Divino" alt="Chaveiro Divino Espírito Santo" loading="lazy">
-                    <div class="overlay">
-                        <button class="btn-quick add-to-cart"
-                                data-name="Chaveiro Divino Espírito Santo"
-                                data-price="54.90"
-                                data-material="PETG Premium">
-                            Adicionar ao Carrinho
-                        </button>
+                <article class="product-item" data-category="imagens" data-reveal>
+                    <div class="img-container light-product">
+                        <img src="https://placehold.co/700x850/fdfaf7/c6a664?text=Nossa+Senhora" alt="Nossa Senhora Aparecida impressa em 3D" loading="lazy">
+                        <div class="overlay">
+                            <button class="btn-quick add-to-cart"
+                                    data-id="nossa-senhora-15"
+                                    data-name="Nossa Senhora Aparecida (15cm)"
+                                    data-price="219.00"
+                                    data-material="PLA Premium"
+                                    data-weight="0.52"
+                                    data-width="16"
+                                    data-height="22"
+                                    data-length="16">
+                                Adicionar ao carrinho
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <div class="product-meta">
-                    <h3>Chaveiro Divino Espírito Santo</h3>
-                    <div class="price-row">
-                        <span class="price">R$ 54,90</span>
-                        <span class="material">PETG Premium</span>
+                    <div class="product-meta">
+                        <div>
+                            <h3>Nossa Senhora Aparecida</h3>
+                            <p>15cm • PLA Premium</p>
+                        </div>
+                        <div class="price-row">
+                            <span class="price">R$ 219,00</span>
+                            <span class="material">0,52kg</span>
+                        </div>
                     </div>
-                </div>
+                </article>
+
+                <article class="product-item" data-category="imagens" data-reveal>
+                    <div class="img-container warm-product">
+                        <img src="https://placehold.co/700x850/f4e9dc/3d2b1f?text=Sagrada+Fam%C3%ADlia" alt="Sagrada Família impressa em 3D" loading="lazy">
+                        <div class="overlay">
+                            <button class="btn-quick add-to-cart"
+                                    data-id="sagrada-familia-18"
+                                    data-name="Sagrada Família (18cm)"
+                                    data-price="239.00"
+                                    data-material="PLA Premium"
+                                    data-weight="0.62"
+                                    data-width="18"
+                                    data-height="24"
+                                    data-length="18">
+                                Adicionar ao carrinho
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-meta">
+                        <div>
+                            <h3>Sagrada Família</h3>
+                            <p>18cm • PLA Premium</p>
+                        </div>
+                        <div class="price-row">
+                            <span class="price">R$ 239,00</span>
+                            <span class="material">0,62kg</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-item" data-category="acessorios" data-reveal>
+                    <div class="img-container light-product">
+                        <img src="https://placehold.co/700x850/efe5dc/3d2b1f?text=Chaveiro+S%C3%A3o+Bento" alt="Chaveiro de São Bento impresso em 3D" loading="lazy">
+                        <div class="overlay">
+                            <button class="btn-quick add-to-cart"
+                                    data-id="chaveiro-sao-bento"
+                                    data-name="Chaveiro de São Bento"
+                                    data-price="49.90"
+                                    data-material="PETG Premium"
+                                    data-weight="0.08"
+                                    data-width="10"
+                                    data-height="4"
+                                    data-length="12">
+                                Adicionar ao carrinho
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-meta">
+                        <div>
+                            <h3>Chaveiro de São Bento</h3>
+                            <p>PETG Premium</p>
+                        </div>
+                        <div class="price-row">
+                            <span class="price">R$ 49,90</span>
+                            <span class="material">0,08kg</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-item" data-category="acessorios" data-reveal>
+                    <div class="img-container warm-product">
+                        <img src="https://placehold.co/700x850/fbf7f2/c6a664?text=Chaveiro+Divino" alt="Chaveiro Divino Espírito Santo impresso em 3D" loading="lazy">
+                        <div class="overlay">
+                            <button class="btn-quick add-to-cart"
+                                    data-id="chaveiro-divino"
+                                    data-name="Chaveiro Divino Espírito Santo"
+                                    data-price="54.90"
+                                    data-material="PETG Premium"
+                                    data-weight="0.08"
+                                    data-width="10"
+                                    data-height="4"
+                                    data-length="12">
+                                Adicionar ao carrinho
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-meta">
+                        <div>
+                            <h3>Chaveiro Divino Espírito Santo</h3>
+                            <p>PETG Premium</p>
+                        </div>
+                        <div class="price-row">
+                            <span class="price">R$ 54,90</span>
+                            <span class="material">0,08kg</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-item" data-category="lembrancas" data-reveal>
+                    <div class="img-container light-product">
+                        <img src="https://placehold.co/700x850/fdfaf7/3d2b1f?text=Mini+Ter%C3%A7o" alt="Mini terço de lembrança impresso em 3D" loading="lazy">
+                        <span class="product-tag">Lembrança</span>
+                        <div class="overlay">
+                            <button class="btn-quick add-to-cart"
+                                    data-id="mini-terco-lembranca"
+                                    data-name="Mini Terço de Lembrança"
+                                    data-price="34.90"
+                                    data-material="PLA Acetinado"
+                                    data-weight="0.06"
+                                    data-width="9"
+                                    data-height="3"
+                                    data-length="11">
+                                Adicionar ao carrinho
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-meta">
+                        <div>
+                            <h3>Mini Terço de Lembrança</h3>
+                            <p>PLA Acetinado</p>
+                        </div>
+                        <div class="price-row">
+                            <span class="price">R$ 34,90</span>
+                            <span class="material">0,06kg</span>
+                        </div>
+                    </div>
+                </article>
             </div>
-        </div>
+        </section>
+
+        <section class="process-section" id="processo">
+            <div class="section-heading" data-reveal>
+                <span class="section-eyebrow">Como funciona</span>
+                <h2>Da impressão ao envio</h2>
+            </div>
+            <div class="process-grid">
+                <article data-reveal>
+                    <span>1</span>
+                    <h3>Você escolhe</h3>
+                    <p>Adicione ao carrinho e calcule o frete pelo CEP.</p>
+                </article>
+                <article data-reveal>
+                    <span>2</span>
+                    <h3>Pagamento seguro</h3>
+                    <p>O pedido é enviado para o checkout do Mercado Pago.</p>
+                </article>
+                <article data-reveal>
+                    <span>3</span>
+                    <h3>Produção e envio</h3>
+                    <p>Após confirmação, a peça é preparada e despachada com rastreio.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="frete-section" id="envio" data-reveal>
+            <div class="frete-container">
+                <span class="section-eyebrow">Logística</span>
+                <h2>Entrega <span class="highlight">rápida</span> & segura</h2>
+                <p class="frete-desc">Agora o carrinho está preparado para cotar frete em tempo real pelo Melhor Envio. O cliente informa o CEP, escolhe a opção e segue para o pagamento.</p>
+
+                <div class="frete-grid">
+                    <div class="frete-card">
+                        <span class="frete-icone">📦</span>
+                        <h3>Embalagem reforçada</h3>
+                        <p>Proteção extra para suas peças chegarem intactas.</p>
+                    </div>
+                    <div class="frete-card">
+                        <span class="frete-icone">🚚</span>
+                        <h3>Entrega nacional</h3>
+                        <p>Opções de envio retornadas pela cotação do Melhor Envio.</p>
+                    </div>
+                    <div class="frete-card">
+                        <span class="frete-icone">🔐</span>
+                        <h3>Tokens protegidos</h3>
+                        <p>As credenciais ficam somente no backend, nunca no navegador.</p>
+                    </div>
+                </div>
+
+                <button class="btn-frete" id="open-cart-shipping">Calcular frete no carrinho</button>
+            </div>
+        </section>
+
+        <section class="contact-section" id="contato" data-reveal>
+            <div>
+                <span class="section-eyebrow">Atendimento</span>
+                <h2>Quer uma peça personalizada?</h2>
+                <p>Use o WhatsApp para encomendas especiais, medidas diferentes ou lembranças para eventos religiosos.</p>
+            </div>
+            <a href="https://wa.me/5587992061091?text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20uma%20encomenda%20personalizada%20na%20Divino3D." class="btn-top" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+        </section>
     </main>
 
-    <!-- Modal do Carrinho (mesmo código anterior) -->
-    <div id="cart-modal" class="cart-modal-overlay">
-        <div class="cart-modal">
+    <div id="cart-modal" class="cart-modal-overlay" aria-hidden="true">
+        <aside class="cart-modal" role="dialog" aria-modal="true" aria-labelledby="cart-title">
             <div class="cart-header">
-                <h2>Seu Carrinho</h2>
-                <button id="close-cart" class="close-btn">&times;</button>
+                <div>
+                    <span class="section-eyebrow">Pedido</span>
+                    <h2 id="cart-title">Seu carrinho</h2>
+                </div>
+                <button id="close-cart" class="close-btn" aria-label="Fechar carrinho">&times;</button>
             </div>
-            <div id="cart-items-container" class="cart-body"></div>
-            <div class="cart-footer">
-                <p>Total: <span id="cart-total">R$ 0,00</span></p>
-                <button id="checkout-btn" class="btn-checkout">Finalizar Compra via WhatsApp</button>
-                <button id="clear-cart" class="btn-clear">Limpar Carrinho</button>
-            </div>
-        </div>
-    </div>
 
-        <!-- Seção de Frete & Logística -->
-    <section class="frete-section" data-reveal>
-        <div class="frete-container">
-            <h2>Entrega <span class="highlight">Rápida</span> & Segura</h2>
-            <p class="frete-desc">Trabalhamos com a Logística Celestial, especializada em entregas de artigos religiosos com cuidado e devoção.</p>
-            
-            <div class="frete-grid">
-                <div class="frete-card">
-                    <span class="frete-icone">📦</span>
-                    <h3>Embalagem Reforçada</h3>
-                    <p>Proteção extra para suas peças chegarem intactas.</p>
+            <div id="cart-items-container" class="cart-body"></div>
+
+            <div class="shipping-box">
+                <label for="shipping-zip">Calcular frete</label>
+                <div class="zip-row">
+                    <input id="shipping-zip" type="text" inputmode="numeric" autocomplete="postal-code" placeholder="Digite seu CEP" maxlength="9">
+                    <button id="shipping-btn" type="button">Calcular</button>
                 </div>
-                <div class="frete-card">
-                    <span class="frete-icone">🚚</span>
-                    <h3>Entrega Nacional</h3>
-                    <p>Enviamos para todo o Brasil com código de rastreio.</p>
-                </div>
-                <div class="frete-card">
-                    <span class="frete-icone">⏱️</span>
-                    <h3>Prazo Médio</h3>
-                    <p>7 a 12 dias úteis após a confirmação do pedido.</p>
-                </div>
+                <small id="shipping-status">Informe o CEP para buscar opções do Melhor Envio.</small>
+                <div id="shipping-options" class="shipping-options"></div>
             </div>
-            
-            <a href="https://wa.me/5587992061091?text=Ol%C3%A1%2C%20gostaria%20de%20consultar%20o%20frete%20para%20meu%20pedido." 
-               class="btn-frete" target="_blank" rel="noopener noreferrer">
-                Consultar Frete pelo WhatsApp
-            </a>
-        </div>
-    </section>
+
+            <div class="cart-footer">
+                <div class="summary-row">
+                    <span>Produtos</span>
+                    <strong id="cart-subtotal">R$ 0,00</strong>
+                </div>
+                <div class="summary-row">
+                    <span>Frete</span>
+                    <strong id="cart-shipping">A calcular</strong>
+                </div>
+                <div class="summary-row total-row">
+                    <span>Total</span>
+                    <strong id="cart-total">R$ 0,00</strong>
+                </div>
+                <button id="checkout-btn" class="btn-checkout">Pagar com Mercado Pago</button>
+                <button id="whatsapp-checkout" class="btn-clear">Finalizar pelo WhatsApp</button>
+                <button id="clear-cart" class="btn-text">Limpar carrinho</button>
+            </div>
+        </aside>
+    </div>
 
     <footer class="site-footer">
         <div class="footer-content">
-            <p>© 2024 Divino3D. Todos os direitos reservados.</p>
-            <p>Fé, arte e tecnologia.</p>
+            <div class="logo">DIVINO<span>3D</span></div>
+            <p>© 2026 Divino3D. Fé, arte e tecnologia.</p>
         </div>
     </footer>
 
